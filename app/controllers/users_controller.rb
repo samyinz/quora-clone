@@ -1,11 +1,7 @@
-get '/' do
-  erb :"static/index"
-end
-
 # create new user
-# get '/signup' do
-# 	erb :'users/new'
-# end
+get '/signup' do
+	erb :'users/new'
+end
 
 post '/signup' do
   @user = User.new(params[:user])
@@ -20,3 +16,5 @@ post '/signup' do
     # what should happen if the user keyed in invalid date?
   end
 end  
+
+
