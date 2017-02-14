@@ -11,7 +11,7 @@ post '/session' do
 	user = User.find_by(email: params[:user][:email])
 	if user && user.authenticate(params[:user][:password])
 		session[:id] = user.id
-		erb :"static/profile"
+		erb :"static/homepage"
 	else
 		@error = "Invalid email / password. Please try again or sign up if you have not registered"
 		erb :"static/index"
