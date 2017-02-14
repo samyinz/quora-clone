@@ -1,9 +1,21 @@
-<!-- <h1>Hello World</h1>
-<p>See Me in views/static/index.html.erb</p> -->
+<div class="container">
+
 <h2>Login</h2>
-<form method=post action=/login>
+<div class="form">
+<form id="input" method="post" action="/session">
     <input type=text placeholder="Email" name="user[email]"><br>
     <input type=password placeholder="Password" name="user[password]"></br>
     <input type=submit value="Login">
-    <input type=submit value="Sign Up">
 </form>
+</div>
+
+<a href="/signup/new"> click here to sign up</a>
+
+</div>
+
+<div>
+	<%=@error%>
+</div>
+
+
+

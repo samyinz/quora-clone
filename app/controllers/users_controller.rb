@@ -1,19 +1,25 @@
-# create new user
-get '/signup' do
-	erb :'users/new'
+# route new user to signup page
+get '/signup/new' do
+	erb :"static/signup"
 end
 
+# show specific user
+get '/users/:id' do
+	erb :"static/profile"
+end
+
+# create new user
 post '/signup' do
   @user = User.new(params[:user])
   if @user.save
+  	@message = "You have successfully signed up"
     session[:user_id] = @user.id
-    erb :'users/new'
+    erb :"static/login"
+    #route user to the login page to find their id
   else
-  	@error = "Invalid user/password. Please try again"
+  	@error = "The Form is incomplete. Please fill in all fields"
   	redirect to '/'
-  # elsif (#if customer would like to sign up)
-  	
-    # what should happen if the user keyed in invalid date?
+  	#pending: how to authenticate whether customer has fully filled in the forms?
   end
 end  
 
